@@ -86,21 +86,22 @@ public class MainWindow extends JFrame {
 		btnJoin = new JButton("Join");
 		btnJoin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				try {
-					if (txtNick.getText().length() != 0) {
-						client = new Socket("localhost", 9090);
-						BufferedReader br = new BufferedReader(new InputStreamReader(client.getInputStream()));
-						String line = br.readLine();
-						textArea.append(line);
-						btnJoin.setEnabled(false);
-
-					} else {
-						JOptionPane.showMessageDialog(null, "No has introducido un nick valido", "Warning",
-								JOptionPane.WARNING_MESSAGE);
+				new Thread(() -> {
+					try {
+						if (txtNick.getText().length() != 0) {
+							client = new Socket("localhost", 9090);
+							BufferedReader br = new BufferedReader(new InputStreamReader(client.getInputStream()));
+							String line = br.readLine();
+							textArea.append(line);
+							/*btnJoin.setEnabled(false);*/
+						} else {
+							JOptionPane.showMessageDialog(null, "No has introducido un nick valido", "Warning",
+									JOptionPane.WARNING_MESSAGE);
+						}
+					} catch (IOException e1) {
+						e1.printStackTrace();
 					}
-				} catch (IOException e1) {
-					e1.printStackTrace();
-				}
+				}).start();
 			}
 		});
 		btnJoin.setBounds(470, 20, 79, 23);
@@ -114,16 +115,18 @@ public class MainWindow extends JFrame {
 		btnSend = new JButton("Send");
 		btnSend.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (txtSend.getText().length() != 0) {
-					DataPackageChat dataPackageChat = new DataPackageChat(txtNick.getText(), txtSend.getText());
-					try {
-						ObjectOutputStream oos = new ObjectOutputStream(client.getOutputStream());
-						oos.writeObject(dataPackageChat);
-						oos.close();
-					} catch (IOException e1) {
-						e1.printStackTrace();
+				new Thread(() -> {
+					if (txtSend.getText().length() != 0) {
+						DataPackageChat dataPackageChat = new DataPackageChat(txtNick.getText(), txtSend.getText());
+						try {
+							ObjectOutputStream oos = new ObjectOutputStream(client.getOutputStream());
+							oos.writeObject(dataPackageChat);
+							oos.close();
+						} catch (IOException e1) {
+							e1.printStackTrace();
+						}
 					}
-				}
+				}).start();
 
 			}
 		});
