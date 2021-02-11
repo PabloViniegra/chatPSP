@@ -42,12 +42,11 @@ public class ClientSocket extends Thread {
         }
     }
 
-    public void enterChat(DataPackageChat dataPackageChat) {
-        this.dataPackageChat = dataPackageChat;
+    public void enterChat() {
         PrintWriter printWriter;
         try {
             printWriter = new PrintWriter(this.socket.getOutputStream());
-            printWriter.println(dataPackageChat.getNick() + " se ha unido al chat " + LocalTime.now());
+            printWriter.println("Te has unido al chat");
         } catch (IOException e) {
             e.printStackTrace();
         }
