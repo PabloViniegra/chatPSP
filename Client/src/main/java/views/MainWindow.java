@@ -18,10 +18,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 import java.awt.event.ActionListener;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.net.Socket;
 import java.awt.event.ActionEvent;
 
@@ -120,11 +117,17 @@ public class MainWindow extends JFrame {
 						ObjectOutputStream oos = new ObjectOutputStream(client.getOutputStream());
 						oos.writeObject(dataPackageChat);
 						oos.close();
+						ObjectInputStream ois= new ObjectInputStream(client.getInputStream());
+						DataPackageChat myDataPackageChat= (DataPackageChat) ois.readObject();
+						String line=myDataPackageChat.getNick()+": "+myDataPackageChat.getMessage()+" hora: "+dataPackageChat.getTime();
+						textArea.append(line);
+						ois.close();
 					} catch (IOException e1) {
 						e1.printStackTrace();
+					} catch (ClassNotFoundException classNotFoundException) {
+						classNotFoundException.printStackTrace();
 					}
 				}
-
 			}
 		});
 		btnSend.setBounds(470, 309, 79, 23);
