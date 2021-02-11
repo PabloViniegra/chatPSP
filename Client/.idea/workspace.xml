@@ -22,12 +22,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f3c9626a-2f73-4d34-8af5-480f0d8cc228" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/impml/DataPackageChat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+    <list default="true" id="f3c9626a-2f73-4d34-8af5-480f0d8cc228" name="Default Changelist" comment="client+ interface">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/views/MainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/views/MainWindow.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -65,6 +61,10 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -77,6 +77,14 @@
       <workItem from="1612640483536" duration="836000" />
       <workItem from="1612641345085" duration="1628000" />
     </task>
+    <task id="LOCAL-00001" summary="client+ interface">
+      <created>1613063399258</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1613063399258</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -93,5 +101,23 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="client+ interface" />
+    <option name="LAST_COMMIT_MESSAGE" value="client+ interface" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="280" y="4" key="SettingsEditor" timestamp="1613067030493">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="280" y="4" key="SettingsEditor/0.0.1600.860@0.0.1600.860" timestamp="1613067030493" />
+    <state x="392" y="163" key="Vcs.Push.Dialog.v2" timestamp="1613063406924">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="392" y="163" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1613063406924" />
+    <state x="463" y="180" width="672" height="678" key="search.everywhere.popup" timestamp="1613066940053">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="463" y="180" width="672" height="678" key="search.everywhere.popup/0.0.1600.860@0.0.1600.860" timestamp="1613066940053" />
   </component>
 </project>
