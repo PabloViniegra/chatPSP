@@ -48,7 +48,7 @@
                     </descriptorRefs>
                     <archive>
                         <manifest>
-                            <mainClass>Controller.Main</mainClass>
+                            <mainClass>controller.Main</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

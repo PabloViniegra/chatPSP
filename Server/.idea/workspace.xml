@@ -5,9 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa0b11b5-c8e4-43b3-9e13-fe92cf6a1698" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../Client/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Client/src/main/java/Controller/ConnectToServer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Client/src/main/java/Controller/ListenFromServer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Client/src/main/java/Controller/SendToServer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/Listen.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/ManageMessages.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Client/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/src/main/java/Controller/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/main/java/Controller/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Client/src/main/java/views/MainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/main/java/views/MainWindow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/ClientSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ClientSocket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/Main.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,15 +47,15 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Client" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Controller.Main" />
+      <option name="MAIN_CLASS_NAME" value="controller.Main" />
       <module name="Client" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Controller.*" />
+          <option name="PATTERN" value="controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -52,15 +63,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -81,6 +90,7 @@
       <updated>1612643046222</updated>
       <workItem from="1612643047539" duration="141000" />
       <workItem from="1613054268285" duration="11792000" />
+      <workItem from="1613079723805" duration="12630000" />
     </task>
     <servers />
   </component>
