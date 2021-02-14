@@ -3,6 +3,7 @@ package views;
 import Controller.ConnectToServer;
 import Controller.ListenFromServer;
 import Controller.SendToServer;
+import lombok.extern.java.Log;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -10,7 +11,9 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
 import java.net.Socket;
+import java.util.concurrent.TimeUnit;
 
+@Log
 public class MainWindow extends JFrame {
     private JPanel contentPane;
     private JTextField txtNick;
@@ -84,8 +87,16 @@ public class MainWindow extends JFrame {
 
         btnSend = new JButton("Send");
         btnSend.addActionListener(e -> {
-            SendToServer sendToServer = new SendToServer(client, txtSend, txtNick);
+
+            SendToServer sendToServer = new SendToServer(client,txtSend,txtNick,textArea);
+
             sendToServer.start();
+            try {
+                TimeUnit.MILLISECONDS.sleep(500);
+                txtSend.setText("");
+            } catch (InterruptedException interruptedException) {
+                interruptedException.printStackTrace();
+            }
         });
         btnSend.setBounds(470, 309, 79, 23);
         panel.add(btnSend);

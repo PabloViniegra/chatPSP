@@ -1,5 +1,7 @@
 package Controller;
 
+import lombok.extern.java.Log;
+
 import javax.swing.*;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -8,6 +10,7 @@ import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.net.SocketAddress;
 
+@Log
 public class ConnectToServer extends Thread {
     private String line;
     private JTextArea textArea;
@@ -20,19 +23,17 @@ public class ConnectToServer extends Thread {
 
     public void run() {
         try {
-            System.out.println("He empezado el hilo");
+            log.info("Ha empezado el hilo para conectar al servidor");
             if (line.length() != 0) {
                 SocketAddress socketAddress = new InetSocketAddress("localhost",9090);
                 client.connect(socketAddress);
-                System.out.println("Me he conectado al servidor");
+                log.info("Me he conectado al servidor");
                 BufferedReader br = new BufferedReader(new InputStreamReader(client.getInputStream()));
                 String aux;
                 aux = br.readLine();
-                System.out.println("Estoy leyendo " + aux);
+                log.info("Estoy leyendo " + aux);
                 textArea.append(line + " " + aux);
-                System.out.println("Deberia haber enlazado el mensaje al JTextArea");
-                System.out.println(aux);
-                /*btnJoin.setEnabled(false);*/
+                log.info("Deberia haber enlazado el mensaje al JTextArea: " + aux);
             } else {
                 JOptionPane.showMessageDialog(null, "No has introducido un nick valido", "Warning",
                         JOptionPane.WARNING_MESSAGE);

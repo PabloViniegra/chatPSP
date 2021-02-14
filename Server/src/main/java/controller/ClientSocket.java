@@ -1,10 +1,11 @@
 package controller;
 
 import impml.DataPackageChat;
+import lombok.extern.java.Log;
 
 import java.io.*;
 import java.net.Socket;
-
+@Log
 public class ClientSocket extends Thread {
     private Socket socket;
     private ObjectOutputStream objectOutputStream;
@@ -19,16 +20,18 @@ public class ClientSocket extends Thread {
     @Override
     public void run() {
         try {
-            System.out.println("El cliente ha empezado");
+            log.info("El cliente ha empezado en el hilo. El Datapackage debería llegar");
             PrintWriter printWriter = new PrintWriter(socket.getOutputStream(),true);
             printWriter.println("se ha unido al chat");
             DataPackageChat dataPackageChat;
             objectInputStream = new ObjectInputStream(socket.getInputStream());
             objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
             while ((dataPackageChat = (DataPackageChat) objectInputStream.readObject()) != null) {
-                System.out.println("Se ha recibido un mensaje");
+                log.info("Se ha recibido un mensaje: " + dataPackageChat.getMessage());
                 manageMessages.sendToAll(dataPackageChat);
             }
+            /*objectOutputStream.reset();
+            objectInputStream.reset();*/
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
