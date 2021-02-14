@@ -1,10 +1,12 @@
 package controller;
 
 import impml.DataPackageChat;
+import lombok.extern.java.Log;
 
 import java.util.List;
 
-public class ManageMessages extends Thread{
+@Log
+public class ManageMessages extends Thread {
     public List<ClientSocket> socket;
 
     public ManageMessages(List<ClientSocket> socket) {
@@ -12,17 +14,17 @@ public class ManageMessages extends Thread{
     }
 
     public void run() {
-        System.out.println("El manage ha empezado");
+        log.info("El hilo ManageMessages ha sido lanzado");
     }
 
-     public void sendToAll(DataPackageChat dataPackageChat) {
+    public void sendToAll(DataPackageChat dataPackageChat) {
         socket.forEach(s -> {
             s.forwardMessage(dataPackageChat);
         });
-     }
+    }
 
     public void sendToAll(String linea) {
-        System.out.println("Enviando mensajes s todos los clientes");
+        log.info("Enviando mensajes a todos los clientes");
         socket.forEach(s -> {
             s.forwardMessage(linea);
         });
