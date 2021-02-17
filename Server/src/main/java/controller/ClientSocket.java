@@ -30,8 +30,6 @@ public class ClientSocket extends Thread {
                 log.info("Se ha recibido un mensaje: " + dataPackageChat.getMessage());
                 manageMessages.sendToAll(dataPackageChat);
             }
-            /*objectOutputStream.reset();
-            objectInputStream.reset();*/
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
@@ -39,7 +37,7 @@ public class ClientSocket extends Thread {
 
     public void forwardMessage(DataPackageChat dataPackageChat) {
         try {
-            objectOutputStream.writeObject(dataPackageChat);
+            /**/objectOutputStream.writeObject(dataPackageChat);
         } catch (IOException e) {
             e.printStackTrace();
         }

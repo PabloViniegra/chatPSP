@@ -5,19 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aa0b11b5-c8e4-43b3-9e13-fe92cf6a1698" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../Client/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Client/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/src/main/java/Controller/ConnectToServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/main/java/Controller/ConnectToServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/src/main/java/Controller/ListenFromServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/main/java/Controller/ListenFromServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/src/main/java/Controller/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/main/java/Controller/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/src/main/java/Controller/SendToServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/main/java/Controller/SendToServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Client/src/main/java/views/MainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/main/java/views/MainWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/ClientSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ClientSocket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/Listen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/Listen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/ManageMessages.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ManageMessages.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,13 +52,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -92,6 +84,7 @@
       <workItem from="1613079723805" duration="12972000" />
       <workItem from="1613140257157" duration="161000" />
       <workItem from="1613330520517" duration="5029000" />
+      <workItem from="1613598146361" duration="2120000" />
     </task>
     <servers />
   </component>
