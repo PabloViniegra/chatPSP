@@ -25,13 +25,11 @@ public class MainWindow extends JFrame {
      * Launch the application.
      */
     public void loadWindow(MainWindow frame) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    frame.setVisible(true);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+        EventQueue.invokeLater(() -> {
+            try {
+                frame.setVisible(true);
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         });
     }

@@ -29,15 +29,18 @@ public class ClientSocket extends Thread {
             while ((dataPackageChat = (DataPackageChat) objectInputStream.readObject()) != null) {
                 log.info("Se ha recibido un mensaje: " + dataPackageChat.getMessage());
                 manageMessages.sendToAll(dataPackageChat);
+                objectOutputStream.flush();
             }
         } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (NullPointerException e) {
             e.printStackTrace();
         }
     }
 
     public void forwardMessage(DataPackageChat dataPackageChat) {
         try {
-            /**/objectOutputStream.writeObject(dataPackageChat);
+            objectOutputStream.writeObject(dataPackageChat);
         } catch (IOException e) {
             e.printStackTrace();
         }
