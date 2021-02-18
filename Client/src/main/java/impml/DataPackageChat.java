@@ -1,14 +1,12 @@
 package impml;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 import java.io.Serializable;
 import java.time.LocalTime;
 import java.util.UUID;
 
-@Getter
-@Setter
+@Data
 public class DataPackageChat implements Serializable {
     private String uuid;
     private String nick;
