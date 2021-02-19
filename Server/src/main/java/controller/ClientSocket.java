@@ -5,6 +5,8 @@ import lombok.extern.java.Log;
 
 import java.io.*;
 import java.net.Socket;
+import java.util.concurrent.TimeUnit;
+
 @Log
 public class ClientSocket extends Thread {
     private Socket socket;
@@ -21,26 +23,40 @@ public class ClientSocket extends Thread {
     public void run() {
         try {
             log.info("El cliente ha empezado en el hilo. El Datapackage debería llegar");
-            PrintWriter printWriter = new PrintWriter(socket.getOutputStream(),true);
-            printWriter.println("se ha unido al chat");
+            new Thread(() -> {
+                try {
+                    PrintWriter printWriter = new PrintWriter(socket.getOutputStream(), true);
+                    printWriter.println("se ha unido al chat");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }).start();
+            TimeUnit.MILLISECONDS.sleep(500);
             DataPackageChat dataPackageChat;
             objectInputStream = new ObjectInputStream(socket.getInputStream());
             objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
             while ((dataPackageChat = (DataPackageChat) objectInputStream.readObject()) != null) {
                 log.info("Se ha recibido un mensaje: " + dataPackageChat.getMessage());
                 manageMessages.sendToAll(dataPackageChat);
-                objectOutputStream.flush();
             }
-        } catch (IOException | ClassNotFoundException e) {
+        }catch (StreamCorruptedException e) {
+            try {
+                objectOutputStream.reset();
+            } catch (IOException ioException) {
+                ioException.printStackTrace();
+            }
+        } catch (IOException | ClassNotFoundException | NullPointerException e) {
             e.printStackTrace();
-        } catch (NullPointerException e) {
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
 
     public void forwardMessage(DataPackageChat dataPackageChat) {
         try {
+            objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
             objectOutputStream.writeObject(dataPackageChat);
+            objectOutputStream.flush();
         } catch (IOException e) {
             e.printStackTrace();
         }
