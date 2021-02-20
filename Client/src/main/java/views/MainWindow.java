@@ -71,6 +71,11 @@ public class MainWindow extends JFrame {
         btnJoin.addActionListener(e -> {
             ConnectToServer connectToServer = new ConnectToServer(client,textArea,txtNick.getText());
             connectToServer.start();
+            try {
+                connectToServer.join();
+            } catch (InterruptedException interruptedException) {
+                interruptedException.printStackTrace();
+            }
             ListenFromServer listenFromServer = new ListenFromServer(client,textArea);
             listenFromServer.start();
         });
