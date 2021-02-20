@@ -56,7 +56,6 @@ public class ClientSocket extends Thread {
         try {
             objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
             objectOutputStream.writeObject(dataPackageChat);
-            objectOutputStream.flush();
         } catch (IOException e) {
             e.printStackTrace();
         }

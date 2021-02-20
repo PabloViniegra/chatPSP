@@ -19,6 +19,7 @@ public class ManageMessages extends Thread {
 
     public void sendToAll(DataPackageChat dataPackageChat) {
         socket.forEach(s -> {
+            log.info("Mensaje para enviar a todos: " + dataPackageChat.getMessage());
             s.forwardMessage(dataPackageChat);
         });
     }
