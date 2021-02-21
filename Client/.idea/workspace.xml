@@ -23,10 +23,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f3c9626a-2f73-4d34-8af5-480f0d8cc228" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/ConnectToServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/ConnectToServer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Controller/ListenFromServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/ListenFromServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/SendToServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/SendToServer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/views/MainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/views/MainWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Server/src/main/java/controller/ClientSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/src/main/java/controller/ClientSocket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Server/src/main/java/controller/ManageMessages.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/src/main/java/controller/ManageMessages.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/src/main/java/controller/Listen.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/src/main/java/controller/Listen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/src/main/java/controller/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Server/src/main/java/controller/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Server/src/main/java/controller/ManageMessages.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,6 +77,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
@@ -91,6 +108,8 @@
       <workItem from="1613079699854" duration="10130000" />
       <workItem from="1613598134281" duration="2066000" />
       <workItem from="1613783334740" duration="47000" />
+      <workItem from="1613861165414" duration="5232000" />
+      <workItem from="1613870692189" duration="1034000" />
     </task>
     <servers />
   </component>

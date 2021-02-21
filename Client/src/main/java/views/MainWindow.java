@@ -21,6 +21,7 @@ public class MainWindow extends JFrame {
     private Socket client;
     private JTextArea textArea;
     private JButton btnJoin, btnSend;
+    private SendToServer sendToServer;
 
     /**
      * Launch the application.
@@ -77,7 +78,10 @@ public class MainWindow extends JFrame {
             } catch (InterruptedException interruptedException) {
                 interruptedException.printStackTrace();
             }
-            ListenFromServer listenFromServer = new ListenFromServer(client,textArea);
+            sendToServer = new SendToServer(client);
+            sendToServer.start();
+            sendToServer.sendUsers(txtNick);
+            ListenFromServer listenFromServer = new ListenFromServer(client, textArea);
             listenFromServer.start();
         });
         btnJoin.setBounds(470, 20, 79, 23);
@@ -90,16 +94,8 @@ public class MainWindow extends JFrame {
 
         btnSend = new JButton("Send");
         btnSend.addActionListener(e -> {
-
-            SendToServer sendToServer = new SendToServer(client,txtSend,txtNick,textArea);
-
-            sendToServer.start();
-            try {
-                TimeUnit.MILLISECONDS.sleep(500);
-                txtSend.setText("");
-            } catch (InterruptedException interruptedException) {
-                interruptedException.printStackTrace();
-            }
+            sendToServer.writeMessage(txtSend,txtNick);
+            txtSend.setText("");
         });
         btnSend.setBounds(470, 309, 79, 23);
         panel.add(btnSend);

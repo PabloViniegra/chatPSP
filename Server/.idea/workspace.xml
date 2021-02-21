@@ -6,8 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="aa0b11b5-c8e4-43b3-9e13-fe92cf6a1698" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../Client/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/src/main/java/Controller/ConnectToServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/main/java/Controller/ConnectToServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/src/main/java/Controller/ListenFromServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/main/java/Controller/ListenFromServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/src/main/java/Controller/SendToServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/main/java/Controller/SendToServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Client/src/main/java/views/MainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Client/src/main/java/views/MainWindow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/ClientSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/ClientSocket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/Listen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/Listen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/ManageMessages.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,6 +80,8 @@
       <workItem from="1613330520517" duration="5029000" />
       <workItem from="1613598146361" duration="2120000" />
       <workItem from="1613602749427" duration="12000" />
+      <workItem from="1613861186185" duration="4310000" />
+      <workItem from="1613870691008" duration="1028000" />
     </task>
     <servers />
   </component>

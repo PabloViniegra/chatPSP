@@ -13,6 +13,7 @@ public class ListenFromServer extends Thread{
     private Socket client;
     private JTextArea txtarea;
     private Logger logger;
+    private ObjectInputStream objectInputStream;
     public ListenFromServer(Socket client, JTextArea textArea) {
         this.client = client;
         this.txtarea = textArea;
@@ -21,17 +22,14 @@ public class ListenFromServer extends Thread{
 
     public void run() {
         DataPackageChat dataPackageChat;
-        ObjectInputStream objectInputStream = null;
         try {
             objectInputStream = new ObjectInputStream(client.getInputStream());
-            synchronized (this) {
                 while ((dataPackageChat = (DataPackageChat) objectInputStream.readObject()) != null) {
                     log.info("ID del usuario y su mensaje" + dataPackageChat.getUuid() + " " + dataPackageChat.getMessage());
-                    txtarea.append("\n" + dataPackageChat.getNick() + ": " + dataPackageChat.getMessage() + "\n" + dataPackageChat.getTime());
+                    txtarea.append("\n" + dataPackageChat.getNick() + ": " + dataPackageChat.getMessage() + "\n" + dataPackageChat.getTime().toString().substring(0,8));
                 }
-            }
         } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
+            log.warning(e.getMessage());
         }
     }
 }

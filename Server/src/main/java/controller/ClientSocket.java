@@ -3,69 +3,50 @@ package controller;
 import impml.DataPackageChat;
 import lombok.extern.java.Log;
 
-import java.io.*;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.PrintWriter;
 import java.net.Socket;
-import java.util.concurrent.TimeUnit;
 
 @Log
 public class ClientSocket extends Thread {
     private Socket socket;
     private ObjectOutputStream objectOutputStream;
     private ObjectInputStream objectInputStream;
-    private ManageMessages manageMessages;
+    private Listen listen;
 
-    public ClientSocket(Socket socket, ManageMessages manageMessages) {
+    public ClientSocket(Socket socket, Listen listen) {
         this.socket = socket;
-        this.manageMessages = manageMessages;
+        this.listen = listen;
     }
 
     @Override
     public void run() {
         try {
             log.info("El cliente ha empezado en el hilo. El Datapackage debería llegar");
-            new Thread(() -> {
-                try {
-                    PrintWriter printWriter = new PrintWriter(socket.getOutputStream(), true);
-                    printWriter.println("se ha unido al chat");
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }).start();
-            TimeUnit.MILLISECONDS.sleep(500);
             DataPackageChat dataPackageChat;
             objectInputStream = new ObjectInputStream(socket.getInputStream());
             objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
             while ((dataPackageChat = (DataPackageChat) objectInputStream.readObject()) != null) {
                 log.info("Se ha recibido un mensaje: " + dataPackageChat.getMessage());
-                manageMessages.sendToAll(dataPackageChat);
-            }
-        }catch (StreamCorruptedException e) {
-            try {
-                objectOutputStream.reset();
-            } catch (IOException ioException) {
-                ioException.printStackTrace();
+                if (!dataPackageChat.getNick().equals("userConnected")) {
+                    listen.sendToAll(dataPackageChat);
+                } else {
+                    DataPackageChat dataPackageChat1 = new DataPackageChat("","Se ha conectado " + dataPackageChat.getMessage());
+                    listen.sendToAll(dataPackageChat1);
+                }
             }
         } catch (IOException | ClassNotFoundException | NullPointerException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
 
     public void forwardMessage(DataPackageChat dataPackageChat) {
         try {
-            objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
             objectOutputStream.writeObject(dataPackageChat);
         } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void forwardMessage(String linea) {
-        try {
-            objectOutputStream.writeUTF(linea);
-        } catch (IOException e) {
-            e.printStackTrace();
+            log.warning(e.getMessage());
         }
     }
 }

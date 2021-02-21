@@ -7,29 +7,41 @@ import javax.swing.*;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
-@Log
-public class SendToServer extends Thread{
-    private Socket client;
-    private JTextField txtSend;
-    private JTextField txtNick;
-    private JTextArea txtarea;
 
-    public SendToServer(Socket client, JTextField txtSend, JTextField txtNick, JTextArea txtarea) {
+@Log
+public class SendToServer extends Thread {
+    private Socket client;
+    private ObjectOutputStream objectOutputStream;
+
+    public SendToServer(Socket client) {
         this.client = client;
-        this.txtSend = txtSend;
-        this.txtNick = txtNick;
-        this.txtarea = txtarea;
     }
+
     public void run() {
+        try {
+            objectOutputStream = new ObjectOutputStream(client.getOutputStream());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void writeMessage(JTextField txtSend, JTextField txtNick) {
         if (txtSend.getText().length() != 0) {
             DataPackageChat dataPackageChat = new DataPackageChat(txtNick.getText(), txtSend.getText());
             try {
-                ObjectOutputStream oos = new ObjectOutputStream(client.getOutputStream());
-                oos.writeObject(dataPackageChat);
-                txtarea.append("\n" + dataPackageChat.getNick() + ": " + dataPackageChat.getMessage() + "\n" + dataPackageChat.getTime());
+                objectOutputStream.writeObject(dataPackageChat);
             } catch (IOException e1) {
-                e1.printStackTrace();
+                log.warning(e1.getMessage());
             }
+        }
+    }
+
+    public void sendUsers(JTextField txtNick) {
+        DataPackageChat dataPackageChat = new DataPackageChat("userConnected",txtNick.getText());
+        try {
+            objectOutputStream.writeObject(dataPackageChat);
+        } catch (IOException e1) {
+            log.warning(e1.getMessage());
         }
     }
 }

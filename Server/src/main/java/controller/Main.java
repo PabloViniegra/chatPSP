@@ -11,7 +11,7 @@ import java.util.List;
 public class Main {
 
     public static final int PORT = 9090;
-    public List<ClientSocket> socketsClientsThread = new ArrayList<>();
+
 
     public static void main(String[] args) {
         new Main().main();
@@ -20,11 +20,11 @@ public class Main {
     public void main() {
         try {
             ServerSocket server = new ServerSocket(PORT);
-            Listen listen = new Listen(socketsClientsThread,server);
+            Listen listen = new Listen(server);
             listen.start();
             log.info("Estoy en la main del server, escuchando la llegada de un cliente...");
         } catch (IOException e) {
-            e.printStackTrace();
+            log.warning(e.getLocalizedMessage());
         }
     }
 }
